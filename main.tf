@@ -100,7 +100,12 @@ resource "azurerm_virtual_machine" "catapp" {
     sku       = var.image_sku
     version   = var.image_version
   }
-
+  
+  tags = {
+    Billable     = "Yes"
+    Department   = "IT"
+  }
+  
   storage_os_disk {
     name              = "${var.prefix}-osdisk"
     managed_disk_type = "Standard_LRS"
